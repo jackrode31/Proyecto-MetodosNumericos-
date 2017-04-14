@@ -9,6 +9,7 @@ static int b;
 		public static void main(String[] args)throws Exception  {
 		
 		//THE PICNICCCCCC, THE FUKING PICNICCCCCCCCCCCCCCCC 
+			//GWUNDYRRRRRR 
 			
 		Doc d;
 		d = new Doc();
@@ -51,7 +52,6 @@ do{
 			case 1: System.exit(0);
 			case 2:/*ANALISIS DE RESULTADOS*/
 				ErrorRedondeo();
-				
 				break;
 			case 3:/*VOLVER AL MENU*/continue;
 				
@@ -89,7 +89,7 @@ do{
 		default: JOptionPane.showMessageDialog(null, "Opci�n invalida.");
 	}
 		
-	}while(b==2||b!=4);
+	}while(b!=4);
 	}
 
 		static void ErrorRedondeo()
@@ -98,7 +98,7 @@ do{
 			float result1=ErrorRedondeo.sumNumSimple(100000, 1f);
 			float result2=ErrorRedondeo.sumNumSimple(100000,0.00001f);
 			double result3 = ErrorRedondeo.sumNumDouble(100000,0.00001);
-			System.out.println(result1+"  "+result2 + "  " +result3);
+			JOptionPane.showMessageDialog(null, result1+"  "+result2 + "  " +result3);
 			
 		}
 }
