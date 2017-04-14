@@ -5,7 +5,7 @@ public class ErrorRedondeo {
 		float result=0;
 		for(int i=0;i<times;i++)
 		{
-			result=result+1;
+			result=result+num;
 			if(num<Float.MAX_VALUE)
 				System.out.println(result);
 		
@@ -18,7 +18,7 @@ public class ErrorRedondeo {
 		double result=0;
 		for(int i=0;i<times;i++)
 		{
-			result=result+1;
+			result=result+num;
 			if(num<Float.MAX_VALUE)
 				System.out.println(result);
 		
