@@ -46,7 +46,7 @@ catch(NumberFormatException e)
 			}
 			catch(NumberFormatException e)
 			{
-				JOptionPane.showMessageDialog(null, "Error, introduzca un numero.");
+				JOptionPane.showMessageDialog(null, "Error, introduzca un de las opciones.");
 				pepe=true;	
 			}
 		}while(pepe == true);
@@ -77,7 +77,7 @@ catch(NumberFormatException e)
 				}
 				catch(NumberFormatException e)
 				{
-					JOptionPane.showMessageDialog(null, "Error, introduzca un numero 2.");
+					JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
 					pepe=true;
 					continue;
 				}
@@ -90,9 +90,10 @@ catch(NumberFormatException e)
 				try{
 					b=Integer.parseInt(ErrorTruncamientoMenu());
 				}catch(NumberFormatException e){
-					JOptionPane.showMessageDialog(null, "Error, introduzca un numero 3.");
+					JOptionPane.showMessageDialog(null, "Error, seleecione una de las opciones presentadas en pantalla.");
 					sunnyday=true;
 				}
+				}while(sunnyday==true);
 			
 				switch(b)
 				{
@@ -101,10 +102,8 @@ catch(NumberFormatException e)
 					case 3:/*Valor exacto de la funcion*/
 					case 4: /*Eror absoluto*/
 					case 5: /*Error relativo porcentual*/
-					case 6:/*Volver al menu 1*/continue;	
+					case 6: continue; //ESTA WEA ESTA BROKENNNN	
 				}
-			}while(sunnyday==true);
-		
 		}
 		
 		
