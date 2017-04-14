@@ -13,8 +13,6 @@ static int b;
 		Doc d;
 		d = new Doc();
 		
-		
-		Methods action = new Methods();
 	
 do{		
 		String MenuPrincipal = ("Menu 1\n Teor�a de error\n"
@@ -99,7 +97,6 @@ do{
 			float result2=ErrorRedondeo.sumNumSimple(100000,0.00001f);
 			double result3 = ErrorRedondeo.sumNumDouble(100000,0.00001);
 			System.out.println(result1+"  "+result2 + "  " +result3);
-			
 		}
 }
 
