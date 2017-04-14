@@ -2,7 +2,6 @@ import javax.swing.JOptionPane;
 
 public class Methods {
 double redondeo, fxr;
-double array[];
 
 
 

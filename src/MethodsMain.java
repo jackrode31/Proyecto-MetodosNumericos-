@@ -5,18 +5,28 @@ public class MethodsMain {
 static String a;
 static int b;
 static double array[] =new double[4];
+static boolean sunnyday=false;
 
-
-		public static void main(String[] args)throws Exception  {
+		public static void main(String[] args)throws IOException  {
 			
 		Doc d;
 		d = new Doc();
 		
 do{		
-		MenuPrincipal();	
-		int b=Integer.parseInt(a);
+	
 		
-		switch(b)
+try{
+	
+	b=Integer.parseInt(MenuPrincipal());
+}catch(NumberFormatException e){
+	JOptionPane.showMessageDialog(null, "you should to fuck your fucking fucked fuck. Ohh crap");
+	continue;
+}
+		
+	
+		
+	
+	switch(b)
 	{
 		
 		case 1:
@@ -27,29 +37,56 @@ do{
 		}
 		case 2: 
 		{
-		ErrorRedondeoMenu();	
-			b=Integer.parseInt(a);
+			do{
+				reset();
+			try{
+			b=Integer.parseInt(ErrorRedondeoMenu());
+			}catch(NumberFormatException e){
+				JOptionPane.showMessageDialog(null, "Error, introduzca un numero.");
+				sunnyday=true;
+				continue;
+			}
 			switch(b)
 			{
 			case 1: System.exit(0);
-			case 2:/*ANALISIS DE RESULTADOS*/
-				ErrorRedondeo();
-				break;
+			case 2:ErrorRedondeo();break;
+			
 			case 3:/*VOLVER AL MENU*/continue;
 				
 			}break;
-		}
+			}while(sunnyday=true);
+		}break;
 			
 		case 3: 
 		{
-			for(int i=1;i<=3;i++){
+			do{
 				
+			reset();
+			try
+			{
+			for(int i=1;i<=3;i++)
+				{
 				array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ i +"del polinomio"));
+				}
 			}
-			 
-			ErrorTruncamientoMenu();
+			catch(NumberFormatException e)
+			{
+				JOptionPane.showMessageDialog(null, "Error, introduzca un numero.");
+				sunnyday=true;
+			}
 			
-			b=Integer.parseInt(a);
+			}while(sunnyday=true);	
+			
+			
+			do{
+				reset();
+			try{
+			b=Integer.parseInt(ErrorTruncamientoMenu());
+			}catch(NumberFormatException e){
+				JOptionPane.showMessageDialog(null, "Error, introduzca un numero.");
+				sunnyday=true;
+				continue;
+			}
 			switch(b)
 			{
 			case 1: JOptionPane.showMessageDialog(null, array[1]); /*Error n-esimo termino*/
@@ -60,6 +97,7 @@ do{
 			case 6:/*Volver al menu 1*/continue;
 				
 			}
+		}while(sunnyday=true);
 		}
 			
 		case 4:
@@ -86,23 +124,27 @@ do{
 		
 		
 		//Menus
-		static void ErrorRedondeoMenu()
+	
+		static String ErrorRedondeoMenu()
 		{
 			a = JOptionPane.showInputDialog(null, "Menu 2\n "
 					+ "Error de Redondeo\n"
 					+ "1. Salir del Programa\n"
 					+ "2. Analisis de Resultados\n"
 					+ "3. Regresar el menu 1\n");
+			return a;
 		}
-		static void MenuPrincipal()
+		
+		static 	String MenuPrincipal()
 		{
 			a = JOptionPane.showInputDialog(null,"Menu 1\n Teoria de error\n"
 					+ "1. Hoja de Presentacion\n"
 					+ "2. Error Cometido\n"
 					+ "3. Calculo por error de truncamiento (Serie de Taylor)\n"
 					+ "4. Salir del Programa\n");
+			return a;
 		}
-		static void ErrorTruncamientoMenu()
+		static String ErrorTruncamientoMenu()
 		{
 			a = JOptionPane.showInputDialog(null, "Menu 3\n\t "
 					+ "Error por Truncamiento\n\t"
@@ -112,6 +154,10 @@ do{
 					+ "4. Error Absoluto\n"
 					+ "5. Error relativo Porcentual \n"
 					+ "6. Regresar al menu 1");
+			return a;
+		}
+		static void reset(){
+			sunnyday=false;
 		}
 }
 
