@@ -6,6 +6,7 @@ static String a;
 static int b;
 static double array[] =new double[4];
 static boolean sunnyday=false;
+static boolean pepe=true;
 
 		public static void main(String[] args)throws IOException  {
 			
@@ -16,74 +17,84 @@ do{
 	
 		
 try{
-	
 	b=Integer.parseInt(MenuPrincipal());
-}catch(NumberFormatException e){
+	}
+catch(NumberFormatException e)
+{
 	JOptionPane.showMessageDialog(null, "you should to fuck your fucking fucked fuck. Ohh crap");
 	continue;
 }
-		
-	
-		
-	
 	switch(b)
 	{
-		
 		case 1:
 		{
 			Doc.main(args); /*clase doc con la hoja de presentacion*/
 			JOptionPane.showMessageDialog(null, "Hasta Luego");
 			System.exit(0);
 		}
+	
+		
+		
 		case 2: 
+			{	
+		do
 		{
-			do{
-				reset();
-			try{
-			b=Integer.parseInt(ErrorRedondeoMenu());
-			}catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "Error, introduzca un numero.");
-				sunnyday=true;
-				continue;
-			}
-			switch(b)
-			{
-			case 1: System.exit(0);
-			case 2:ErrorRedondeo();break;
-			
-			case 3:/*VOLVER AL MENU*/continue;
-				
-			}break;
-			}while(sunnyday=true);
-		}break;
-			
-		case 3: 
-		{
-			do{
-				
-			reset();
+			resetpepe();
 			try
 			{
-			for(int i=1;i<=3;i++)
-				{
-				array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ i +"del polinomio"));
-				}
+				b=Integer.parseInt(ErrorRedondeoMenu());
 			}
 			catch(NumberFormatException e)
 			{
 				JOptionPane.showMessageDialog(null, "Error, introduzca un numero.");
-				sunnyday=true;
+				pepe=true;	
+			}
+		}while(pepe == true);
+			
+				switch(b)
+				{
+					case 1: System.exit(0);
+					case 2:
+					{
+						ErrorRedondeo();
+						System.exit(0);
+						
+					}
+					
+					case 3: continue;	
+				}
+			}
+		
+		
+		case 3: 
+		do{
+			do{
+				{
+				
+			resetpepe();
+			try
+			{
+			for(int i=1;i<=3;i++)
+				{
+				array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ i +" del polinomio"));
+				}
+			}
+			catch(NumberFormatException e)
+			{
+				JOptionPane.showMessageDialog(null, "Error, introduzca un numero 2.");
+				pepe=true;
+				continue;
 			}
 			
-			}while(sunnyday=true);	
+				
 			
 			
-			do{
+			
 				reset();
 			try{
 			b=Integer.parseInt(ErrorTruncamientoMenu());
 			}catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "Error, introduzca un numero.");
+				JOptionPane.showMessageDialog(null, "Error, introduzca un numero 3.");
 				sunnyday=true;
 				continue;
 			}
@@ -97,8 +108,11 @@ try{
 			case 6:/*Volver al menu 1*/continue;
 				
 			}
-		}while(sunnyday=true);
-		}
+			
+		
+				}
+			}while(sunnyday=true);continue;
+		}while(pepe=true);
 			
 		case 4:
 		{
@@ -156,8 +170,13 @@ try{
 					+ "6. Regresar al menu 1");
 			return a;
 		}
-		static void reset(){
+		static boolean reset(){
 			sunnyday=false;
+			return sunnyday;
+		}
+		static boolean resetpepe(){
+			pepe=false;
+			return pepe;
 		}
 }
 
