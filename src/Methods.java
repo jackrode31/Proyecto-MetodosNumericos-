@@ -2,6 +2,8 @@ import javax.swing.JOptionPane;
 
 public class Methods {
 double redondeo, fxr;
+double array[];
+
 
 
 	public double redondeo (double redondeo){
@@ -11,5 +13,7 @@ double redondeo, fxr;
 	 public double ErrorTruncamiento (double truncamiento){
 		 return truncamiento;
 	 }
+	 
+	 
 	 
 }
