@@ -5,7 +5,7 @@ public class MethodsMain {
 static String a;
 static int b;
 static double array[] =new double[4];
-static boolean sunnyday=false;
+static boolean sunnyday=true;
 static boolean pepe=true;
 
 		public static void main(String[] args)throws IOException  {
@@ -57,62 +57,57 @@ catch(NumberFormatException e)
 					case 2:
 					{
 						ErrorRedondeo();
-						System.exit(0);
-						
+						System.exit(0);	
 					}
-					
 					case 3: continue;	
 				}
 			}
 		
 		
 		case 3: 
-		do{
-			do{
-				{
-				
+			{
+				do{
 			resetpepe();
-			try
-			{
-			for(int i=1;i<=3;i++)
+				try
 				{
-				array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ i +" del polinomio"));
+					for(int i=1;i<=3;i++)
+					{
+						array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ i +" del polinomio"));
+					}
 				}
-			}
-			catch(NumberFormatException e)
-			{
-				JOptionPane.showMessageDialog(null, "Error, introduzca un numero 2.");
-				pepe=true;
-				continue;
-			}
-			
+				catch(NumberFormatException e)
+				{
+					JOptionPane.showMessageDialog(null, "Error, introduzca un numero 2.");
+					pepe=true;
+					continue;
+				}
+				}while(pepe==true);	
 				
-			
-			
-			
+				
+			do{
 				reset();
-			try{
-			b=Integer.parseInt(ErrorTruncamientoMenu());
-			}catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "Error, introduzca un numero 3.");
-				sunnyday=true;
-				continue;
-			}
-			switch(b)
-			{
-			case 1: JOptionPane.showMessageDialog(null, array[1]); /*Error n-esimo termino*/
-			case 2:/*Valor aproximado de la funci�n*/
-			case 3:/*Valor exacto de la funcion*/
-			case 4: /*Eror absoluto*/
-			case 5: /*Error relativo porcentual*/
-			case 6:/*Volver al menu 1*/continue;
 				
-			}
-			
-		
+				try{
+					b=Integer.parseInt(ErrorTruncamientoMenu());
+				}catch(NumberFormatException e){
+					JOptionPane.showMessageDialog(null, "Error, introduzca un numero 3.");
+					sunnyday=true;
 				}
-			}while(sunnyday=true);continue;
-		}while(pepe=true);
+			
+				switch(b)
+				{
+					case 1: /*Error n-esimo termino*/
+					case 2:/*Valor aproximado de la funci�n*/
+					case 3:/*Valor exacto de la funcion*/
+					case 4: /*Eror absoluto*/
+					case 5: /*Error relativo porcentual*/
+					case 6:/*Volver al menu 1*/continue;	
+				}
+			}while(sunnyday==true);
+		
+		}
+		
+		
 			
 		case 4:
 		{
