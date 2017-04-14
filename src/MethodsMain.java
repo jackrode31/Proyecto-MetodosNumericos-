@@ -8,24 +8,12 @@ static double array[] =new double[4];
 
 
 		public static void main(String[] args)throws Exception  {
-		
-		//THE PICNICCCCCC, THE FUKING PICNICCCCCCCCCCCCCCCC 
-			//GWUNDYRRRRRR 
 			
 		Doc d;
 		d = new Doc();
 		
-	
 do{		
-		String MenuPrincipal = ("Menu 1\n Teoria de error\n"
-				+ "1. Hoja de Presentacion\n"
-				+ "2. Error Cometido\n"
-				+ "3. Calculo por error de truncamiento (Serie de Taylor)\n"
-				+ "4. Salir del Programa\n");
-	
-	
-		a = JOptionPane.showInputDialog(null, MenuPrincipal);
-	
+		MenuPrincipal();	
 		int b=Integer.parseInt(a);
 		
 		switch(b)
@@ -39,12 +27,7 @@ do{
 		}
 		case 2: 
 		{
-			a = JOptionPane.showInputDialog(null, "Menu 2\n "
-					+ "Error de Redondeo\n"
-					+ "1. Salir del Programa\n"
-					+ "2. Analisis de Resultados\n"
-					+ "3. Regresar el menu 1\n");
-			
+		ErrorRedondeoMenu();	
 			b=Integer.parseInt(a);
 			switch(b)
 			{
@@ -64,14 +47,7 @@ do{
 				array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ i +"del polinomio"));
 			}
 			 
-			a = JOptionPane.showInputDialog(null, "Menu 3\n\t "
-					+ "Error por Truncamiento\n\t"
-					+ "1. Error cometio en el n-esimo termino\n"
-					+ "2. Valor aproximado de la funcion\n"
-					+ "3. Valor exacto de la funcion\n"
-					+ "4. Error Absoluto\n"
-					+ "5. Error relativo Porcentual \n"
-					+ "6. Regresar al menu 1");
+			ErrorTruncamientoMenu();
 			
 			b=Integer.parseInt(a);
 			switch(b)
@@ -106,6 +82,36 @@ do{
 			JOptionPane.showMessageDialog(null, result1+"  "+result2 + "  " +result3);
 			
 
+		}
+		
+		
+		//Menus
+		static void ErrorRedondeoMenu()
+		{
+			a = JOptionPane.showInputDialog(null, "Menu 2\n "
+					+ "Error de Redondeo\n"
+					+ "1. Salir del Programa\n"
+					+ "2. Analisis de Resultados\n"
+					+ "3. Regresar el menu 1\n");
+		}
+		static void MenuPrincipal()
+		{
+			a = JOptionPane.showInputDialog(null,"Menu 1\n Teoria de error\n"
+					+ "1. Hoja de Presentacion\n"
+					+ "2. Error Cometido\n"
+					+ "3. Calculo por error de truncamiento (Serie de Taylor)\n"
+					+ "4. Salir del Programa\n");
+		}
+		static void ErrorTruncamientoMenu()
+		{
+			a = JOptionPane.showInputDialog(null, "Menu 3\n\t "
+					+ "Error por Truncamiento\n\t"
+					+ "1. Error cometio en el n-esimo termino\n"
+					+ "2. Valor aproximado de la funcion\n"
+					+ "3. Valor exacto de la funcion\n"
+					+ "4. Error Absoluto\n"
+					+ "5. Error relativo Porcentual \n"
+					+ "6. Regresar al menu 1");
 		}
 }
 
