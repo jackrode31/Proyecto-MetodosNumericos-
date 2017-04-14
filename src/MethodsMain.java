@@ -17,8 +17,8 @@ static int b;
 		Methods action = new Methods();
 	
 do{		
-		String MenuPrincipal = ("Menu 1\n Teoría de error\n"
-				+ "1. Hoja de Presentación\n"
+		String MenuPrincipal = ("Menu 1\n Teorï¿½a de error\n"
+				+ "1. Hoja de Presentaciï¿½n\n"
 				+ "2. Error Cometido\n"
 				+ "3. Calculo por error de truncamiento (Serie de Taylor)\n"
 				+ "4. Salir del Programa\n");
@@ -42,14 +42,17 @@ do{
 			a = JOptionPane.showInputDialog(null, "Menu 2\n "
 					+ "Error de Redondeo\n"
 					+ "1. Salir del Programa\n"
-					+ "2. Análisis de Resultados\n"
+					+ "2. Anï¿½lisis de Resultados\n"
 					+ "3. Regresar el menu 1\n");
 			
 			b=Integer.parseInt(a);
 			switch(b)
 			{
 			case 1: System.exit(0);
-			case 2:/*ANALISIS DE RESULTADOS*/break;
+			case 2:/*ANALISIS DE RESULTADOS*/
+				ErrorRedondeo();
+				
+				break;
 			case 3:/*VOLVER AL MENU*/continue;
 				
 			}break;
@@ -60,8 +63,8 @@ do{
 			a = JOptionPane.showInputDialog(null, "Menu 3\n\t "
 					+ "Error por Truncamiento\n\t"
 					+ "1. Error cometio en el n-esimo termino\n"
-					+ "2. Valor aproximado de la función\n"
-					+ "3. Valor exacto de la función\n"
+					+ "2. Valor aproximado de la funciï¿½n\n"
+					+ "3. Valor exacto de la funciï¿½n\n"
 					+ "4. Error Absoluto\n"
 					+ "5. Error relativo Porcentual \n"
 					+ "6. Regresar al menu 1");
@@ -70,7 +73,7 @@ do{
 			switch(b)
 			{
 			case 1: /*Error n-esimo termino*/
-			case 2:/*Valor aproximado de la función*/
+			case 2:/*Valor aproximado de la funciï¿½n*/
 			case 3:/*Valor exacto de la funcion*/
 			case 4: /*Eror absoluto*/
 			case 5: /*Error relativo porcentual*/
@@ -83,12 +86,21 @@ do{
 		{
 			System.exit(0);
 		}
-		default: JOptionPane.showMessageDialog(null, "Opción invalida.");
+		default: JOptionPane.showMessageDialog(null, "Opciï¿½n invalida.");
 	}
 		
 	}while(b==2||b!=4);
 	}
 
+		static void ErrorRedondeo()
+		{
+			
+			float result1=ErrorRedondeo.sumNumSimple(100000, 1f);
+			float result2=ErrorRedondeo.sumNumSimple(100000,0.00001f);
+			double result3 = ErrorRedondeo.sumNumDouble(100000,0.00001);
+			System.out.println(result1+" "+result2 + " " +result3);
+			
+		}
 }
 
 
