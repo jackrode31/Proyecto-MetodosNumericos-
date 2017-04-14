@@ -6,8 +6,6 @@ public class ErrorRedondeo {
 		for(int i=0;i<times;i++)
 		{
 			result=result+num;
-			if(num<Float.MAX_VALUE)
-				System.out.println(result);
 		
 		}
 		return result;
@@ -19,8 +17,6 @@ public class ErrorRedondeo {
 		for(int i=0;i<times;i++)
 		{
 			result=result+num;
-			if(num<Float.MAX_VALUE)
-				System.out.println(result);
 		
 		}
 		return result;
