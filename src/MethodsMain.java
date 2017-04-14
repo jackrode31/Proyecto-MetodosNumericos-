@@ -98,7 +98,7 @@ do{
 			float result1=ErrorRedondeo.sumNumSimple(100000, 1f);
 			float result2=ErrorRedondeo.sumNumSimple(100000,0.00001f);
 			double result3 = ErrorRedondeo.sumNumDouble(100000,0.00001);
-			System.out.println(result1+" "+result2 + " " +result3);
+			System.out.println(result1+"  "+result2 + "  " +result3);
 			
 		}
 }
