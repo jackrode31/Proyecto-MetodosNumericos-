@@ -3,10 +3,6 @@ import javax.swing.JOptionPane;
 
 
 public class Derivada {
-
-	public void derivada(){
-		
-	}
 	
 	public static void main(){
 		

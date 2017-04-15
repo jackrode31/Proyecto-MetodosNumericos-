@@ -72,11 +72,13 @@ catch(NumberFormatException e)
 			resetpepe();
 				try
 				{
-					for(int i=1;i<=3;i++)
+					for(int i=0;i<=2;i++)
 					{
-						array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ i+" del polinomio"));
-						exp[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el exponente del termino "+i));
+						array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ (i+1) +" del polinomio"));
+						exp[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el exponente del termino "+(i+1)));
 					}
+					
+					array[3]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino constante"));
 					
 					x= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X"));
 					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X redondeado"));//prueba
@@ -144,12 +146,12 @@ catch(NumberFormatException e)
 		
 		
 		static  void ValorExactoFunction(){
-			 ValorExacto= (array[1]*Math.pow(x,exp[1]) + (array[2]*Math.pow(x,exp[2])) + (Math.pow(array[3],exp[3])*x));
+			 ValorExacto= (array[0]*Math.pow(x,exp[0]) + (array[1]*Math.pow(x,exp[1])) + (Math.pow(array[2],exp[2])*x)+array[3]);
 			 JOptionPane.showMessageDialog(null, "Valor Exacto de la función es: "+ValorExacto);
 		 }
 		
 		static void ValorRedondeado(){
-				ValorRedondeado= (array[1]*Math.pow(xr,exp[1]) + (array[2]*Math.pow(xr,exp[2])) + (Math.pow(array[3],exp[3])*xr));
+				ValorRedondeado= (array[0]*Math.pow(xr,exp[0]) + (array[1]*Math.pow(xr,exp[1])) + (Math.pow(array[2],exp[2])*xr+array[3]));
 				JOptionPane.showMessageDialog(null, "Valor Redondeado de la función es: "+ValorRedondeado);
 		}
 		

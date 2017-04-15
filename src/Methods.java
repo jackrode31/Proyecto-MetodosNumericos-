@@ -1,27 +1,38 @@
+import javax.swing.JOptionPane;
 
 public class Methods {
-double redondeo, fxr, ValorExacto, x;
-double array[] = new double [4];
+double redondeo, fxr;
+
+static double ValorExacto, VAbsoluto, ValorRedondeado, VRelativo, xr, x;
 
 
 
+	static double array[] = MethodsMain.array;
+	static double exp[]= MethodsMain.exp;
 
-	public double redondeo (double redondeo){
-		 redondeo=fxr-redondeo;
-		 return redondeo;
-	 }
-	 public double ErrorTruncamiento (double truncamiento){
-		 return truncamiento;
+
+	 	 
+	 static  void ValorExactoFunction(){
+		 ValorExacto= (array[1]*Math.pow(x,exp[1]) + (array[2]*Math.pow(x,exp[2])) + (Math.pow(array[3],exp[3])*x));
+		 JOptionPane.showMessageDialog(null, "Valor Exacto de la función es: "+ValorExacto);
 	 }
 	 
-	 
-	 public void setPolinomio(double[] array){
-			this.array=array;
+
+		static void ValorRedondeado(){
+				ValorRedondeado= (array[1]*Math.pow(xr,exp[1]) + (array[2]*Math.pow(xr,exp[2])) + (Math.pow(array[3],exp[3])*xr));
+				JOptionPane.showMessageDialog(null, "Valor Redondeado de la función es: "+ValorRedondeado);
 		}
-
-	 public void ValorExactoFunction(){
-		 ValorExacto= (x*array[0])+ (x*Math.pow(array[1], 2))+(x*Math.pow(array[3], 3)); 
-	 }
+		
+		static void ErrorAbsoluto(){
+			VAbsoluto=ValorExacto-ValorRedondeado;
+			JOptionPane.showMessageDialog(null, "Error Absoluto de la función es: "+VAbsoluto);
+		}
+		
+		static void ErrorRelativo(){
+			VRelativo=VAbsoluto/ValorExacto;
+			JOptionPane.showMessageDialog(null, "Error Relativo de la función es: "+VRelativo);
+		}
+		
 	 
 	 
 }
