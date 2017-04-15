@@ -6,17 +6,14 @@ static String a;
 static int b;
 static boolean sunnyday=true;
 static boolean pepe=true;
-static double x, xr, VAbsoluto, ValorRedondeado, VRelativo;
+static double h, x, xr, VAbsoluto, ValorRedondeado, VRelativo;
 static double ValorExacto; 
 static double array[]=new double [4];
 static double exp[]=new double[4];
 
 
 		public static void main(String[] args)throws IOException  {
-	
-			Methods action = new Methods();
-			
-			
+		
 do{		
 	
 		
@@ -50,7 +47,7 @@ catch(NumberFormatException e)
 			}
 			catch(NumberFormatException e)
 			{
-				JOptionPane.showMessageDialog(null, "Error, introduzca un de las opciones.");
+				JOptionPane.showMessageDialog(null, "Error, introduzca una de las opciones.");
 				pepe=true;	
 			}
 		}while(pepe == true);
@@ -82,7 +79,7 @@ catch(NumberFormatException e)
 					}
 					
 					x= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X"));
-					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X redondeado"));
+					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X redondeado"));//prueba
 				
 					
 				}
@@ -109,7 +106,7 @@ catch(NumberFormatException e)
 				switch(b)
 				{
 					case 1: /*Error n-esimo termino*/
-					case 2: ValorRedondeado();
+					case 2: ValorRedondeado(); //ESTO NO VA AQUI. ES DE PRUEBA
 					case 3: ValorExactoFunction();
 					case 4: ErrorAbsoluto();
 					case 5: ErrorRelativo();
@@ -123,11 +120,17 @@ catch(NumberFormatException e)
 		{
 			System.exit(0);
 		}
+		
+		case 5: Derivada.main();
 		default: JOptionPane.showMessageDialog(null, "Opcion invalida.");
 	}
 		
 	}while(b!=4);
 	}
+		
+		
+		
+		
 
 		
 		static void ErrorRedondeo()
@@ -140,18 +143,13 @@ catch(NumberFormatException e)
 		}
 		
 		
-		static void getPolinomio(){
-			
-		}
-		
 		static  void ValorExactoFunction(){
-			 ValorExacto= (array[1]*Math.pow(x,3) + (array[2]*Math.pow(x,2)) + (array[3]*x));
-			 
+			 ValorExacto= (array[1]*Math.pow(x,exp[1]) + (array[2]*Math.pow(x,exp[2])) + (Math.pow(array[3],exp[3])*x));
 			 JOptionPane.showMessageDialog(null, "Valor Exacto de la función es: "+ValorExacto);
 		 }
 		
 		static void ValorRedondeado(){
-				ValorRedondeado= (array[1]*Math.pow(xr,3) + (array[2]*Math.pow(xr,2)) + (array[3]*xr));
+				ValorRedondeado= (array[1]*Math.pow(xr,exp[1]) + (array[2]*Math.pow(xr,exp[2])) + (Math.pow(array[3],exp[3])*xr));
 				JOptionPane.showMessageDialog(null, "Valor Redondeado de la función es: "+ValorRedondeado);
 		}
 		
@@ -159,13 +157,22 @@ catch(NumberFormatException e)
 			VAbsoluto=ValorExacto-ValorRedondeado;
 			JOptionPane.showMessageDialog(null, "Error Absoluto de la función es: "+VAbsoluto);
 		}
+		
 		static void ErrorRelativo(){
 			VRelativo=VAbsoluto/ValorExacto;
 			JOptionPane.showMessageDialog(null, "Error Relativo de la función es: "+VRelativo);
 		}
 		
 		
+		
 	
+		
+		
+		
+		
+		
+		
+		
 		//Menus
 	
 		static String ErrorRedondeoMenu()
@@ -187,6 +194,8 @@ catch(NumberFormatException e)
 					+ "4. Salir del Programa\n");
 			return a;
 		}
+		
+		
 		static String ErrorTruncamientoMenu()
 		{
 			a = JOptionPane.showInputDialog(null, "Menu 3\n\t "

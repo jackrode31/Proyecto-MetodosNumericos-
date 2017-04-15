@@ -1,9 +1,3 @@
-import javax.swing.JOptionPane;
-
-
-
-
-
 
 public class Methods {
 double redondeo, fxr, ValorExacto, x;
