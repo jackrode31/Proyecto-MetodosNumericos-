@@ -1,3 +1,4 @@
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.io.IOException;
 
@@ -13,6 +14,7 @@ static double exp[]=new double[4];
 
 
 	public static void main(String[] args)throws IOException  {
+		ImageIcon presentacion = new ImageIcon(MethodsMain.class.getClassLoader().getResource("hojaresentacion.jpg"));
 		do{		
 			try{
 				b=Integer.parseInt(MenuPrincipal());
@@ -26,9 +28,8 @@ static double exp[]=new double[4];
 			{
 				case 1:
 				{
-					Doc.main(args); /*clase doc con la hoja de presentacion*/
-					JOptionPane.showMessageDialog(null, "Hasta Luego");
-					System.exit(0);
+					
+					JOptionPane.showMessageDialog(null, presentacion);
 				}			
 				break;
 				case 2: 
