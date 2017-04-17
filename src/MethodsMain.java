@@ -12,122 +12,70 @@ static double array[]=new double [4];
 static double exp[]=new double[4];
 
 
-		public static void main(String[] args)throws IOException  {
-		
-do{		
-	
-		
-try{
-	b=Integer.parseInt(MenuPrincipal());
-	}
-catch(NumberFormatException e)
-{
-	JOptionPane.showMessageDialog(null, "you should to fuck your fucking fucked fuck. Ohh crap");
-	continue;
-}
-	switch(b)
-	{
-		case 1:
-		{
-			Doc.main(args); /*clase doc con la hoja de presentacion*/
-			JOptionPane.showMessageDialog(null, "Hasta Luego");
-			System.exit(0);
-		}
-	
-		
-		
-		case 2: 
-			{	
-		do
-		{
-			resetpepe();
-			try
-			{
-				b=Integer.parseInt(ErrorRedondeoMenu());
-			}
+	public static void main(String[] args)throws IOException  {
+		do{		
+			try{
+				b=Integer.parseInt(MenuPrincipal());
+				}
 			catch(NumberFormatException e)
 			{
-				JOptionPane.showMessageDialog(null, "Error, introduzca una de las opciones.");
-				pepe=true;	
+				JOptionPane.showMessageDialog(null, "you should to fuck your fucking fucked fuck. Ohh crap");
+				continue;
 			}
-		}while(pepe == true);
-			
-				switch(b)
-				{
-					case 1: System.exit(0);
-					case 2:
-					{
-						ErrorRedondeo();
-						System.exit(0);	
-					}
-					case 3: continue;
-					default: JOptionPane.showMessageDialog(null, "Opción Invalida.");
-				}
-			}
-		
-		
-		case 3: 
+			switch(b)
 			{
-				do{
-			resetpepe();
-				try
+				case 1:
 				{
-					for(int i=0;i<=2;i++)
+					Doc.main(args); /*clase doc con la hoja de presentacion*/
+					JOptionPane.showMessageDialog(null, "Hasta Luego");
+					System.exit(0);
+				}			
+				break;
+				case 2: 
+				{	
+					boolean error = false;
+					do
 					{
-						array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino "+ (i+1) +" del polinomio"));
-						exp[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el exponente del termino "+(i+1)));
+						try
+						{
+							b=Integer.parseInt(ErrorRedondeoMenu());
+							error=false;
+						}
+						catch(NumberFormatException e)
+						{
+							JOptionPane.showMessageDialog(null, "Error, introduzca una de las opciones.");
+							error=true;	
+						}
+					}while(error == true);
+				
+					switch(b)
+					{
+						case 1: System.exit(0);
+						case 2:
+						{
+							ErrorRedondeo();
+						}
+						case 3: continue;
+						default: JOptionPane.showMessageDialog(null, "Opción Invalida.");
 					}
-					
-					array[3]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino constante"));
-					
-					x= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X"));
-					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X redondeado"));//prueba
-				
-					
 				}
-				catch(NumberFormatException e)
+				break;
+				
+				case 3: 
+					{
+								ErrorTruncamiento();
+					}	
+				break;
+				case 4:
 				{
-					JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
-					pepe=true;
-					continue;
+					System.exit(0);
 				}
-				}while(pepe==true);	
-				
-				
-			do{
-				reset();
-				
-				try{
-					b=Integer.parseInt(ErrorTruncamientoMenu());
-				}catch(NumberFormatException e){
-					JOptionPane.showMessageDialog(null, "Error, seleecione una de las opciones presentadas en pantalla.");
-					sunnyday=true;
-				}
-				}while(sunnyday==true);
+				break;
+				case 5: Derivada.main();break;
+				default: JOptionPane.showMessageDialog(null, "Opcion invalida.");break;
+			}
 			
-				switch(b)
-				{
-					case 1: /*Error n-esimo termino*/
-					case 2: ValorRedondeado(); //ESTO NO VA AQUI. ES DE PRUEBA
-					case 3: ValorExactoFunction();
-					case 4: ErrorAbsoluto();
-					case 5: ErrorRelativo();
-					case 6: continue;
-					default: JOptionPane.showMessageDialog(null, "Opcion invalida.");
-				}
-		}
-		
-					
-		case 4:
-		{
-			System.exit(0);
-		}
-		
-		case 5: Derivada.main();
-		default: JOptionPane.showMessageDialog(null, "Opcion invalida.");
-	}
-		
-	}while(b!=4);
+		}while(b!=4);
 	}
 		
 		
@@ -179,11 +127,33 @@ catch(NumberFormatException e)
 	
 		static String ErrorRedondeoMenu()
 		{
-			a = JOptionPane.showInputDialog(null, "Menu 2\n "
-					+ "Error de Redondeo\n"
-					+ "1. Salir del Programa\n"
-					+ "2. Analisis de Resultados\n"
-					+ "3. Regresar el menu 1\n");
+			int op;
+			do
+				{
+				
+					a = JOptionPane.showInputDialog(null, "Menu 2\n "
+						+ "Error de Redondeo\n"
+						+ "1. Salir del Programa\n"
+						+ "2. Analisis de Resultados\n"
+						+ "3. Regresar el menu 1\n");
+					op=Integer.parseInt(a);
+					switch(op)
+					{
+						case 1:
+						{
+							System.out.println("Adios");
+							System.exit(0);
+						}
+						case 2:
+						{
+							ErrorRedondeo();
+						}
+						case 3:
+						{
+							
+						}
+					}
+				}while(op!=3);
 			return a;
 		}
 		
@@ -211,6 +181,96 @@ catch(NumberFormatException e)
 			return a;
 		}
 		
+		static void ErrorTruncamiento()
+		{
+			for(int i=0;i<=3;i++)
+			{
+				boolean error = false;
+				do
+				{
+					System.out.println("stuck");
+					try
+					{
+					array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "a0+a1X^1+a2X^2+a3X^3"+ "\n"+"a"+(i)+":" ));
+					//exp[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el exponente del termino "+(i+1)));
+					error =false;
+					}
+					catch(NumberFormatException e)
+					{
+						JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
+						error=true;
+						continue;
+					}
+				}while(error==true);	
+			}
+			
+			//array[3]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino constante"));
+			boolean error = false;
+			do
+			{
+				
+				try
+				{
+					x= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X"));
+					error =false;
+				}
+				catch(NumberFormatException e)
+				{
+					JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
+					error=true;
+				}
+			}while(error==true);
+			
+			error = false;
+			do
+			{
+				try
+				{
+					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X redondeado"));
+				
+				}
+				catch(NumberFormatException e)
+				{
+					JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
+					error=true;
+				}
+			}while(error==true);
+			double resp[] = TaylorAproxFunc.taylorAprox(0.0001, array, x, xr);
+			int op = 0;
+			
+			do
+			{
+				
+					try
+					{
+						op=Integer.parseInt(ErrorTruncamientoMenu());
+					}
+					catch(NumberFormatException e)
+					{
+						JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
+						continue;
+					}
+					switch(op)
+					{
+					case 1:
+						JOptionPane.showMessageDialog(null, "El error en el nesimo termino fue de: "  + resp[1]);
+						break;
+					case 2:
+						JOptionPane.showMessageDialog(null, "El Valor Aproximado de la funcion: "  + resp[0]);
+						break;
+					case 3 :
+						JOptionPane.showMessageDialog(null, "El valor exacto de la funcion: "  + resp[2]);
+						break;
+					case 4:
+						JOptionPane.showMessageDialog(null, "Error Absoluto: "  + resp[3]);
+						break;
+					case 5:
+						JOptionPane.showMessageDialog(null, "Error Relativo: "  + resp[4]);
+						break;
+					}
+			}while(op!=6 );
+			
+		}
 		
 		static boolean reset(){
 			sunnyday=false;
