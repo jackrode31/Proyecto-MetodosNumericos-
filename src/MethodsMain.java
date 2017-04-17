@@ -14,7 +14,7 @@ static double exp[]=new double[4];
 
 
 	public static void main(String[] args)throws IOException  {
-		ImageIcon presentacion = new ImageIcon(MethodsMain.class.getClassLoader().getResource("hojaresentacion.jpg"));
+		ImageIcon presentacion = new ImageIcon(MethodsMain.class.getClassLoader().getResource("presentacion.jpg"));
 		do{		
 			try{
 				b=Integer.parseInt(MenuPrincipal());
