@@ -13,7 +13,7 @@ public class Doc {
 		        desktop = Desktop.getDesktop();
 		      }
 
-		       desktop.open(new File("doc\\presentacion.pdf"));
+		       desktop.open(new File("src\\presentacion.pdf"));
 		    } catch (IOException ioe) 
 			{
 		      ioe.printStackTrace();

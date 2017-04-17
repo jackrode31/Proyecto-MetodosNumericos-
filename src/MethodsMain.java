@@ -19,7 +19,7 @@ static double exp[]=new double[4];
 				}
 			catch(NumberFormatException e)
 			{
-				JOptionPane.showMessageDialog(null, "you should to fuck your fucking fucked fuck. Ohh crap");
+				JOptionPane.showMessageDialog(null, "Introduzca una de las opciones.");
 				continue;
 			}
 			switch(b)
@@ -71,7 +71,6 @@ static double exp[]=new double[4];
 					System.exit(0);
 				}
 				break;
-				case 5: Derivada.main();break;
 				default: JOptionPane.showMessageDialog(null, "Opcion invalida.");break;
 			}
 			
@@ -226,7 +225,7 @@ static double exp[]=new double[4];
 			{
 				try
 				{
-					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X redondeado"));
+					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X(0)"));
 				
 				}
 				catch(NumberFormatException e)
