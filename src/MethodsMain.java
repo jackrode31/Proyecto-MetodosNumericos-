@@ -1,6 +1,8 @@
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MethodsMain {
 static String a;
@@ -9,8 +11,7 @@ static boolean sunnyday=true;
 static boolean pepe=true;
 static double h, x, xr, VAbsoluto, ValorRedondeado, VRelativo;
 static double ValorExacto; 
-static double array[]=new double [4];
-static double exp[]=new double[4];
+static Double array[]=new Double [4];
 
 
 	public static void main(String[] args)throws IOException  {
@@ -92,36 +93,7 @@ static double exp[]=new double[4];
 			JOptionPane.showMessageDialog(null, result1+"  "+result2 + "  " +result3);
 		}
 		
-		
-		static  void ValorExactoFunction(){
-			 ValorExacto= (array[0]*Math.pow(x,exp[0]) + (array[1]*Math.pow(x,exp[1])) + (Math.pow(array[2],exp[2])*x)+array[3]);
-			 JOptionPane.showMessageDialog(null, "Valor Exacto de la función es: "+ValorExacto);
-		 }
-		
-		static void ValorRedondeado(){
-				ValorRedondeado= (array[0]*Math.pow(xr,exp[0]) + (array[1]*Math.pow(xr,exp[1])) + (Math.pow(array[2],exp[2])*xr+array[3]));
-				JOptionPane.showMessageDialog(null, "Valor Redondeado de la función es: "+ValorRedondeado);
-		}
-		
-		static void ErrorAbsoluto(){
-			VAbsoluto=ValorExacto-ValorRedondeado;
-			JOptionPane.showMessageDialog(null, "Error Absoluto de la función es: "+VAbsoluto);
-		}
-		
-		static void ErrorRelativo(){
-			VRelativo=VAbsoluto/ValorExacto;
-			JOptionPane.showMessageDialog(null, "Error Relativo de la función es: "+VRelativo);
-		}
-		
-		
-		
 	
-		
-		
-		
-		
-		
-		
 		
 		//Menus
 	
@@ -188,11 +160,9 @@ static double exp[]=new double[4];
 				boolean error = false;
 				do
 				{
-					System.out.println("stuck");
 					try
 					{
 					array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "a0+a1X^1+a2X^2+a3X^3"+ "\n"+"a"+(i)+":" ));
-					//exp[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el exponente del termino "+(i+1)));
 					error =false;
 					}
 					catch(NumberFormatException e)
@@ -204,7 +174,6 @@ static double exp[]=new double[4];
 				}while(error==true);	
 			}
 			
-			//array[3]=Double.parseDouble(JOptionPane.showInputDialog(null, "ingrese el termino constante"));
 			boolean error = false;
 			do
 			{
@@ -235,7 +204,11 @@ static double exp[]=new double[4];
 					error=true;
 				}
 			}while(error==true);
-			double resp[] = TaylorAproxFunc.taylorAprox(0.0001, array, x, xr);
+			
+			TaylorAproxFunc aproximation = new TaylorAproxFunc();
+			ArrayList<Double> ol = new ArrayList<Double>(Arrays.asList(array));
+			aproximation.func= new PolinomialFunc(new ArrayList<Double>(Arrays.asList(array)));
+			double resp[] = aproximation.aprox(x, xr);
 			int op = 0;
 			
 			do

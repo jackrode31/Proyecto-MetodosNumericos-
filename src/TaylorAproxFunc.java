@@ -21,26 +21,25 @@ public class TaylorAproxFunc {
 				derivative.add(func.Derivate());
 				errLast=taylorCoef(i,derivative.get(i).evaluate(x0))*Math.pow(x-x0, i+1);
 				aproximation += x0Evaluation;
-
-				
 			}
 			else
 			{
-				//double x0Evaluation = derivative.get(i-1).evaluate(x0);
 				aproximation +=errLast;
 				derivative.add(derivative.get(i-1).Derivate());
 				errLast=taylorCoef(i+1,derivative.get(i).evaluate(x0))*Math.pow(x-x0, i+1);
-
-
 			}
 			i++;
 			
 		}while(errLast>0.0001);
-		return new double[] {aproximation};
+		double valorExacto=func.evaluate(x);
+		double errorAbso = Math.abs(valorExacto-aproximation);
+		double errorRel = Math.abs(errorAbso/valorExacto);
+		return new double[]{aproximation,errLast,valorExacto,errorAbso,errorRel};
+
 	}
 	
 	
-	public static void main(String args[]) throws IOException
+	/*public static void main(String args[]) throws IOException
 	{
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 		double a,b,c,d;
@@ -53,14 +52,14 @@ public class TaylorAproxFunc {
 		aprox.func=pol;
 		System.out.println(aprox.aprox(1.0,1.0)[0]);
 
-		/*ArrayList<Double> arr=pol1.getCoef();
+		ArrayList<Double> arr=pol1.getCoef();
 		for (int i =0;i<arr.size();i++)
 		{
 			System.out.println(arr.get(i));
 		}
-		*/
+		
 	}
-	
+	*/
 	
 	
 	public static double taylorCoef(int n,double x0Evaluation)
