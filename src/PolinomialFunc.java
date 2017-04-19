@@ -34,20 +34,5 @@ public class PolinomialFunc {
 		return new PolinomialFunc(derivative_coef);
 	}
 
-	public static void main(String args[]) throws IOException
-	{
-		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
-		double a,b,c,d;
-		a=Double.parseDouble(rd.readLine());
-		b=Double.parseDouble(rd.readLine());
-		c=Double.parseDouble(rd.readLine());
-		d=Double.parseDouble(rd.readLine());
-		PolinomialFunc pol = new PolinomialFunc(new ArrayList<Double>(Arrays.asList(a,b,c,d)));
-		PolinomialFunc pol1 = pol.Derivate();
-		ArrayList<Double> arr=pol1.getCoef();
-		for (int i =0;i<arr.size();i++)
-		{
-			System.out.println(arr.get(i));
-		}
-	}
+	
 }
