@@ -6,14 +6,10 @@ import java.util.Arrays;
 
 public class PolinomialFunc {
 	private ArrayList<Double> coef;
-	public ArrayList<Double> getCoef() {
-		return coef;
-	}
-	public void setCoef(ArrayList<Double> coef) {
-		this.coef = coef;
-	}
-
 	private String name;
+
+
+	
 	
 	public PolinomialFunc(ArrayList<Double> coef )
 	{
@@ -24,6 +20,13 @@ public class PolinomialFunc {
 		this.coef = new ArrayList<Double>(coef);
 		this.name = name;
 	}
+	
+	public ArrayList<Double> getCoef() {
+		return coef;
+	}
+	public void setCoef(ArrayList<Double> coef) {
+		this.coef = coef;
+	}
 	public PolinomialFunc Derivate()
 	{
 		ArrayList<Double> derivative_coef = new ArrayList<Double>();
@@ -33,6 +36,14 @@ public class PolinomialFunc {
 		}
 		return new PolinomialFunc(derivative_coef);
 	}
-
+	public double evaluate(double x)
+	{
+		double evaluation=0;
+		for(int n = 0; n<coef.size();n++)
+		{
+			evaluation =+ Math.pow(x,n)*coef.get(n);
+		}
+		return evaluation;
+	}
 	
 }
