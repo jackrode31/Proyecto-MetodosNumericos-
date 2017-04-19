@@ -1,13 +1,10 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class PolinomialFunc {
 	private ArrayList<Double> coef;
-	private String name;
-
+	
 
 	
 	
@@ -18,7 +15,7 @@ public class PolinomialFunc {
 	public PolinomialFunc(ArrayList<Double> coef,String name )
 	{
 		this.coef = new ArrayList<Double>(coef);
-		this.name = name;
+
 	}
 	
 	public ArrayList<Double> getCoef() {
