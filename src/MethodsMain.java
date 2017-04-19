@@ -7,11 +7,6 @@ import java.util.Arrays;
 public class MethodsMain {
 static String a;
 static int b;
-static boolean sunnyday=true;
-static boolean pepe=true;
-static double h, x, xr, VAbsoluto, ValorRedondeado, VRelativo;
-static double ValorExacto; 
-static Double array[]=new Double [4];
 
 
 	public static void main(String[] args)throws IOException  {
@@ -155,26 +150,45 @@ static Double array[]=new Double [4];
 		
 		static void ErrorTruncamiento()
 		{
-			for(int i=0;i<=3;i++)
+			
+			boolean error = false;
+			ArrayList<Double> funcCoef= new ArrayList<Double>();
+			double orderPol = 0;
+			double x = 0;
+			double x0 = 0;
+			do
 			{
-				boolean error = false;
+				try
+				{
+					orderPol=Double.parseDouble(JOptionPane.showInputDialog(null, "Orden del Polinomio:"));
+					error =false;
+				}
+				catch(NumberFormatException e)
+				{
+					JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
+					error=true;
+				}
+			}while(error==true);	
+			
+			for(int i=0;i<=orderPol;i++)
+			{
+				 error = false;
 				do
 				{
 					try
 					{
-					array[i]=Double.parseDouble(JOptionPane.showInputDialog(null, "a0+a1X^1+a2X^2+a3X^3"+ "\n"+"a"+(i)+":" ));
-					error =false;
+						funcCoef.add(Double.parseDouble(JOptionPane.showInputDialog(null, "a0+a1X^1+a2X^2+...+anX^n"+ "\n"+"a"+(i)+":" )));
+						error =false;
 					}
 					catch(NumberFormatException e)
 					{
 						JOptionPane.showMessageDialog(null, "Error, no ha introducido un numero.");
 						error=true;
-						continue;
 					}
 				}while(error==true);	
 			}
 			
-			boolean error = false;
+			
 			do
 			{
 				
@@ -195,7 +209,7 @@ static Double array[]=new Double [4];
 			{
 				try
 				{
-					xr= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X(0)"));
+					x0= Double.parseDouble(JOptionPane.showInputDialog(null,"Inserte el valor de X0"));
 				
 				}
 				catch(NumberFormatException e)
@@ -206,9 +220,8 @@ static Double array[]=new Double [4];
 			}while(error==true);
 			
 			TaylorAproxFunc aproximation = new TaylorAproxFunc();
-			ArrayList<Double> ol = new ArrayList<Double>(Arrays.asList(array));
-			aproximation.func= new PolinomialFunc(new ArrayList<Double>(Arrays.asList(array)));
-			double resp[] = aproximation.aprox(x, xr);
+			aproximation.func= new PolinomialFunc(new ArrayList<Double>(funcCoef));
+			double resp[] = aproximation.aprox(x, x0);
 			int op = 0;
 			
 			do
@@ -245,16 +258,7 @@ static Double array[]=new Double [4];
 			
 		}
 		
-		static boolean reset(){
-			sunnyday=false;
-			return sunnyday;
-		}
-		
-		
-		static boolean resetpepe(){
-			pepe=false;
-			return pepe;
-		}
+
 		
 		
 }
