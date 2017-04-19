@@ -41,8 +41,10 @@ public class PolinomialFunc {
 		double evaluation=0;
 		for(int n = 0; n<coef.size();n++)
 		{
-			evaluation =+ Math.pow(x,n)*coef.get(n);
+			evaluation += Math.pow(x,n)*coef.get(n);
+			
 		}
+
 		return evaluation;
 	}
 	

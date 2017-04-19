@@ -1,6 +1,74 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TaylorAproxFunc {
+	public PolinomialFunc func;
+	public ArrayList<PolinomialFunc> derivative=new ArrayList<PolinomialFunc>();
+	
+	public double[] aprox(Double x, Double x0)
+	{
+		double aproximation = 0;
+		double errLast = 0;
+		int i = 0;
+		do
+		{
+			if(i ==0)
+			{
+				double x0Evaluation = func.evaluate(x0);
+				derivative.add(func.Derivate());
+				errLast=taylorCoef(i,derivative.get(i).evaluate(x0))*Math.pow(x-x0, i+1);
+				aproximation += x0Evaluation;
+
+				
+			}
+			else
+			{
+				//double x0Evaluation = derivative.get(i-1).evaluate(x0);
+				aproximation +=errLast;
+				derivative.add(derivative.get(i-1).Derivate());
+				errLast=taylorCoef(i+1,derivative.get(i).evaluate(x0))*Math.pow(x-x0, i+1);
+
+
+			}
+			i++;
+			
+		}while(errLast>0.0001);
+		return new double[] {aproximation};
+	}
+	
+	
+	public static void main(String args[]) throws IOException
+	{
+		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
+		double a,b,c,d;
+		a=Double.parseDouble(rd.readLine());
+		b=Double.parseDouble(rd.readLine());
+		c=Double.parseDouble(rd.readLine());
+		d=Double.parseDouble(rd.readLine());
+		PolinomialFunc pol = new PolinomialFunc(new ArrayList<Double>(Arrays.asList(a,b,c,d)));
+		TaylorAproxFunc aprox = new TaylorAproxFunc();
+		aprox.func=pol;
+		System.out.println(aprox.aprox(1.0,1.0)[0]);
+
+		/*ArrayList<Double> arr=pol1.getCoef();
+		for (int i =0;i<arr.size();i++)
+		{
+			System.out.println(arr.get(i));
+		}
+		*/
+	}
+	
+	
+	
+	public static double taylorCoef(int n,double x0Evaluation)
+	{
+		return x0Evaluation/(double)factorial(n);
+	}
+	
+	
 	
 	public static double evalOrigin(double a0,double a1, double a2, double a3,double x0)
 	{
@@ -68,4 +136,7 @@ public class TaylorAproxFunc {
 			  else
 			    return numero * factorial(numero-1);
 			}
+	
+	
+	
 }
