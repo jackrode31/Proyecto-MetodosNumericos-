@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MethodsMain {
+public class Main {
 static String a;
 static int b;
 
