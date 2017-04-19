@@ -96,31 +96,31 @@ static int b;
 		{
 			int op;
 			do
-				{
+			{
 				
-					a = JOptionPane.showInputDialog(null, "Menu 2\n "
-						+ "Error de Redondeo\n"
-						+ "1. Salir del Programa\n"
-						+ "2. Analisis de Resultados\n"
-						+ "3. Regresar el menu 1\n");
-					op=Integer.parseInt(a);
-					switch(op)
+				a = JOptionPane.showInputDialog(null, "Menu 2\n "
+					+ "Error de Redondeo\n"
+					+ "1. Salir del Programa\n"
+					+ "2. Analisis de Resultados\n"
+					+ "3. Regresar el menu 1\n");
+				op=Integer.parseInt(a);
+				switch(op)
+				{
+					case 1:
 					{
-						case 1:
-						{
-							System.out.println("Adios");
-							System.exit(0);
-						}
-						case 2:
-						{
-							ErrorRedondeo();
-						}
-						case 3:
-						{
-							
-						}
+						System.out.println("Adios");
+						System.exit(0);
 					}
-				}while(op!=3);
+					case 2:
+					{
+						ErrorRedondeo();
+					}
+					case 3:
+					{
+						
+					}
+				}
+			}while(op!=3);
 			return a;
 		}
 		
