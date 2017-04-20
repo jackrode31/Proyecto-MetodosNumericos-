@@ -24,7 +24,7 @@ public class Main {
 				{
 					op = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu 2\n "
 							+ "Error de Redondeo\n"
-							+ "1. Salir del Programa\n"
+							+ "1. Salida del Programa\n"
 							+ "2. Analisis de Resultados\n"
 							+ "3. Regresar el menu 1\n"));
 					error = false;
@@ -39,16 +39,23 @@ public class Main {
 			switch(op)
 			{
 				case 1:
-					System.out.println("Adios");
-					System.exit(0);
-					break;
-				case 2:
-				{
+				{	
 					float result1=ErrorRedondeo.sumNumSimple(100000, 1f);
 					float result2=ErrorRedondeo.sumNumSimple(100000,0.00001f);
 					double result3 = ErrorRedondeo.sumNumDouble(100000,0.00001);
 
 					JOptionPane.showMessageDialog(null, result1+"  "+result2 + "  " +result3);
+				}
+					break;
+				case 2:
+				{
+					JOptionPane.showMessageDialog(null,"Debido al hecho de que cualquier numero real que no\n"
+							+ "sea multiplo de 5, por ejemplo 0.5 , 0.75 ,etc no se puede representar de manera\n"
+							+ "exacta, cada ya de por si el numero 0.00001 de manera flotante ya tiene un error\n"
+							+ "de redondeo, a medida que uno va sumando el error va creciendo y es por esto que el sumar\n "
+							+ "dicho numero no nos da el resultado esperado de 1, de igual manera pasa cuando se trata con \n"
+							+ "doble presicion");
+
 				}
 				break;
 				case 3:break;
