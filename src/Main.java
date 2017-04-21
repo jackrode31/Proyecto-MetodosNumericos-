@@ -44,7 +44,9 @@ public class Main {
 					float result2=ErrorRedondeo.sumNumSimple(100000,0.00001f);
 					double result3 = ErrorRedondeo.sumNumDouble(100000,0.00001);
 
-					JOptionPane.showMessageDialog(null, result1+"  "+result2 + "  " +result3);
+					JOptionPane.showMessageDialog(null, ("\tSuma Simple con 1     =  "+result1)+
+							("\n\tSuma Simple 0.00001=  "+result2) + 
+									("\n\tSuma Double 0.00001=   " +result3));
 				}
 					break;
 				case 2:
