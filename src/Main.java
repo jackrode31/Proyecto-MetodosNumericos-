@@ -164,10 +164,23 @@ public class Main {
 				error=true;
 			}
 		}while(error==true);
+		String flag;
+			flag = JOptionPane.showInputDialog(null, "Desea hacer la aproximacion con la restriccion de que la serie \n "
+					+ "pare cuando el error en el n-esimo termino sea menor a 0.0001 (s)/n");
+
 		
 		TaylorAproxFunc aproximation = new TaylorAproxFunc();
 		aproximation.func= new PolinomialFunc(new ArrayList<Double>(funcCoef));
-		double resp[] = aproximation.aprox(x, x0);
+		double resp[];
+		if(flag.equals("n"))
+		{
+			System.out.println(flag);
+			resp = aproximation.aprox(x, x0,"");
+		}
+		else
+		{
+			resp=aproximation.aprox(x, x0);
+		}
 		int op = 0;
 		do
 		{
